@@ -1,0 +1,12 @@
+<!-- plants_index.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+{% for plant in plants %}
+        <p>
+            <h2><a href='/plants/{{ plant._id }}'>{{ plant.name }}</a></h2>
+            <p>{{ plant.description }}</p>
+            <img src="{{ plant.image }}" alt="{{ plant.name }}">
+        </p>
+    {% endfor %}
+{% endblock %}

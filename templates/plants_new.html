@@ -1,0 +1,9 @@
+<!-- plants_new.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<form method='POST' action='/plants'>
+    {% include 'partials/plants_form.html' %}
+    <button type='submit'>Save Plant Listing</button>
+</form>
+{% endblock %}

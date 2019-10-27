@@ -1,0 +1,11 @@
+<!-- plants_edit.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<form method='POST' action='/plants/{{plant._id}}'>
+    <input type='hidden' name='_method' value='PUT'/>
+    {% include 'partials/playlists_form.html' %}
+
+    <button type='submit'>Update Plant Listing</button>
+</form>
+{% endblock %}
