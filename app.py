@@ -1,7 +1,10 @@
 from bson import ObjectId
 from flask import Flask, render_template, request, redirect, url_for
 from pymongo import MongoClient
-
+'''
+    * add navbar (back & home buttons on edit, home on new) and pretty css to new and edit pages
+    * 
+'''
 app = Flask(__name__)
 
 client = MongoClient()
@@ -10,7 +13,6 @@ plants = db.plants
 
 
 @app.route('/')
-
 def plants_index():
     return render_template('plants_index.html', plants=plants.find())
 

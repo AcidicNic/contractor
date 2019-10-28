@@ -2,20 +2,22 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<!-- plant navbar -->
+<div>
+    <div id="logo">Plant Nursery</div>
+    <div class="container">
+        <button class='header_btn' onclick="location.href='/';">Home</button>
+        <button class='header_btn' onclick="location.href='/plants/{{ plant._id }}/edit';">Edit Listing</button>
+        <button type='submit' form='delete_form' class='header_btn'>Delete Listing</button>
+    </div>
+</div>
+<div class='plant_container'>
+    <h1 class='plant_name'>{{ plant.name }}</h1>
+    <img class='plant_img' src="{{ plant.image }}" alt="{{ plant.name }}"><br>
+    <p class='plant_desc'>{{ plant.description }}</p>
+</div>
 
-<h1>{{ plant.name }}</h1>
-<h2>{{ plant.description }}</h2>
-<img src="{{ plant.image }}" alt="{{ plant.name }}">
-
-<p>
-    <a href='/plants/{{ plant._id }}/edit'>Edit</a>
-</p>
-
-<p>
-<form method='POST' action='/plants/{{plant._id}}/delete'>
+<form method='POST' id='delete_form' action='/plants/{{plant._id}}/delete'>
     <input type='hidden' name='_method' value='DELETE'>
-    <button type='submit'>Delete</button>
 </form>
-</p>
-
 {% endblock %}

@@ -5,14 +5,14 @@
 <head>
     <meta charset='utf-8'>
     <title>Plant Nursery</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='base.css') }}">
     <!-- favicon -->
     <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
     <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
 </head>
 <body>
-    <div>
-        {% block content %}
-        {% endblock %}
-    </div>
+{% block content %}
+{% endblock %}
+
 </body>
 </html>

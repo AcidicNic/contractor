@@ -2,11 +2,20 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<!-- index navbar -->
+<div class="container">
+    <button class='header_btn' onclick="location.href='/';">Home</button>
+    <button class='header_btn' onclick="location.href='/plants/new';">Create Listing</button>
+</div>
+
 {% for plant in plants %}
-        <p>
-            <h2><a href='/plants/{{ plant._id }}'>{{ plant.name }}</a></h2>
-            <p>{{ plant.description }}</p>
-            <img src="{{ plant.image }}" alt="{{ plant.name }}">
-        </p>
+    <div class='plant_container'>
+        <p class='plant_name'>{{ plant.name }}</p>
+        <img class='plant_img' src="{{ plant.image }}" alt="{{ plant.name }}"><br>
+        <p class='plant_desc'>{{ plant.description }}</p>
+        <button class='plant_details' onclick="location.href='/plants/{{ plant._id }}';">Details</button>
+        <br>
+    </div>
+
     {% endfor %}
 {% endblock %}

@@ -1,0 +1,96 @@
+body {
+    background-color: #b3d4a7;
+}
+.plant_container {
+    font-family: pretty;
+    text-align: center;
+    background-color: #e5f5df;
+    margin: 0 auto;
+    width: 70%;
+    border-radius: 5px;
+    color: #5ea840;
+    padding-top: 10px;
+    margin-top: 25px;
+}
+.plant_details {
+    margin-bottom: 10px;
+    font-family: pretty;
+    background-color: #5ea840;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 18px;
+    border: none;
+    margin-left: 10px;
+}
+.plant_name {
+    margin: 10px;
+    font-size: 36px;
+}
+.plant_desc {
+    font-size: 20px;
+    display: inline-block;
+}
+.plant_img {
+    width: 90%;
+    border-radius: 5px;
+}
+
+.plant_show_container {
+    font-family: pretty;
+    text-align: center;
+}
+
+.container {
+    width: 60%;
+    padding: 10px;
+    background-color: #e5f5df;
+    margin-bottom: 10px;
+    margin: auto;
+    display: flex;
+    flex-flow: row wrap;
+    text-align: center;
+    align-items: center;
+    border-radius: 5px;
+}
+.header_btn {
+    background-color: #5ea840;
+    color: #ffffff;
+    padding: 10px;
+    text-align: center;
+    margin-right: 10px;
+    border-radius: 5px;
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 24px;
+    border: none;
+    font-family: pretty;
+}
+.header_btn:hover, .plant_details:hover {
+    cursor: pointer;
+    background-color: #90b881;
+    -webkit-animation: rumble .0625s infinite linear;
+}
+#logo {
+    font-family: logo;
+    text-align: center;
+    color: #5ea840;
+    font-size: 72px;
+    margin-right: auto;
+    margin-left: auto;
+    user-select: none;
+}
+#logo:hover {
+    -webkit-animation: rumble .0625s infinite linear;
+}
+@-webkit-keyframes rumble {
+    0% {-webkit-transform: rotate(0deg);}
+    25% {-webkit-transform: translate(1px, 0px) rotate(-3deg);}
+    50% {-webkit-transform: translate(0px, -1px) rotate(0deg);}
+    75% {-webkit-transform: translate(-1px, 0px) rotate(3deg);}
+    100% {-webkit-transform: translate(0px, 1px) rotate(0deg);}
+}
+
+@font-face { font-family: CaviarDreams; src: url('CaviarDreams.ttf'); }
+@font-face { font-family: logo; src: url('stereofidelic.ttf'); }
+@font-face { font-family: pretty; src: url('Please write me a song.ttf'); }
