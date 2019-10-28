@@ -1,10 +1,12 @@
 from bson import ObjectId
 from flask import Flask, render_template, request, redirect, url_for
 from pymongo import MongoClient
-'''
+
+''' TODO:
     * add navbar (back & home buttons on edit, home on new) and pretty css to new and edit pages
-    * 
+    * deploy to heroku??
 '''
+
 app = Flask(__name__)
 
 client = MongoClient()
@@ -14,11 +16,26 @@ plants = db.plants
 
 @app.route('/')
 def plants_index():
+    ''' home page, lists all of the plant lsitings '''
     return render_template('plants_index.html', plants=plants.find())
+
+
+@app.route('/plants/<plant_id>')
+def plants_show(plant_id):
+    ''' shows the info for one individual plant '''
+    plant = plants.find_one({'_id': ObjectId(plant_id)})
+    return render_template('plants_show.html', plant=plant)
+
+
+@app.route('/plants/new')
+def plants_new():
+    ''' form to create a listing '''
+    return render_template('plants_new.html', plant={}, title='Add a Plant!')
 
 
 @app.route('/plants', methods=['POST'])
 def plants_submit():
+    ''' add new plant to the database and redirect to that plant's page '''
     plant = {
         'name': request.form.get('name'),
         'description': request.form.get('description'),
@@ -28,8 +45,16 @@ def plants_submit():
     return redirect(url_for('plants_show', plant_id=plant_id))
 
 
+@app.route('/plants/<plant_id>/edit')
+def plans_edit(plant_id):
+    ''' form to edit a plant's listing '''
+    plant = plants.find_one({'_id': ObjectId(plant_id)})
+    return render_template('plants_edit.html', plant=plant, title='Edit Listing')
+
+
 @app.route('/plants/<plant_id>', methods=['POST'])
 def plants_update(plant_id):
+    ''' add updated info of a plant to the database and redirect to that plant's page '''
     updated_plant = {
         'name': request.form.get('name'),
         'description': request.form.get('description'),
@@ -41,27 +66,11 @@ def plants_update(plant_id):
     return redirect(url_for('plants_show', plant_id=plant_id))
 
 
-@app.route('/plants/new')
-def plants_new():
-    return render_template('plants_new.html', plant={}, title='Add a Plant!')
-
-
-@app.route('/plants/<plant_id>/edit')
-def plans_edit(plant_id):
-    plant = plants.find_one({'_id': ObjectId(plant_id)})
-    return render_template('plants_edit.html', plant=plant, title='Edit Listing')
-
-
 @app.route('/plants/<plant_id>/delete', methods=['POST'])
 def plants_delete(plant_id):
+    ''' delete a plant from the database, redirect to the home page '''
     plants.delete_one({'_id': ObjectId(plant_id)})
     return redirect(url_for('plants_index'))
-
-
-@app.route('/plants/<plant_id>')
-def plants_show(plant_id):
-    plant = plants.find_one({'_id': ObjectId(plant_id)})
-    return render_template('plants_show.html', plant=plant)
 
 
 if __name__ == '__main__':
