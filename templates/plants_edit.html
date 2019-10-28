@@ -2,10 +2,17 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<form method='POST' action='/plants/{{plant._id}}'>
-    <input type='hidden' name='_method' value='PUT'/>
-    {% include 'partials/plants_form.html' %}
+<div class="nav_container">
+    <button class='header_btn' onclick="location.href='/plants/{{plant._id}}';">Back</button>
+    <div id="logo" onclick="location.href='/';">Plant Nursery</div>
+</div>
 
-    <button type='submit'>Update Plant Listing</button>
-</form>
+<div class='plant_form'>
+    <form method='POST' action='/plants/{{plant._id}}'>
+        <input type='hidden' name='_method' value='PUT'/>
+        {% include 'partials/plants_form.html' %}
+
+        <button type='submit' class='plant_btn' style="margin-left: 0px;">Update Plant Listing</button>
+    </form>
+</div>
 {% endblock %}

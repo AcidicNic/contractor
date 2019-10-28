@@ -2,8 +2,15 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<form method='POST' action='/plants'>
-    {% include 'partials/plants_form.html' %}
-    <button type='submit'>Save Plant Listing</button>
-</form>
+<div class="nav_container">
+    <button class='header_btn' onclick="location.href='/';">Back</button>
+    <div id="logo" onclick="location.href='/';">Plant Nursery</div>
+</div>
+
+<div class='plant_form'>
+    <form method='POST' action='/plants'>
+        {% include 'partials/plants_form.html' %}
+        <button type='submit' class='plant_btn' style="margin-left: 0px;">Save Plant Listing</button>
+    </form>
+</div>
 {% endblock %}

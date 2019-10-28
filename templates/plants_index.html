@@ -3,17 +3,17 @@
 
 {% block content %}
 <!-- index navbar -->
-<div class="container">
-    <button class='header_btn' onclick="location.href='/';">Home</button>
+<div class="nav_container">
+    <div id="logo" onclick="location.href='/';">Plant Nursery</div>
     <button class='header_btn' onclick="location.href='/plants/new';">Create Listing</button>
 </div>
 
 {% for plant in plants %}
     <div class='plant_container'>
-        <p class='plant_name'>{{ plant.name }}</p>
+        <h1 class='plant_name'>{{ plant.name }}</h1>
         <img class='plant_img' src="{{ plant.image }}" alt="{{ plant.name }}"><br>
         <p class='plant_desc'>{{ plant.description }}</p>
-        <button class='plant_details' onclick="location.href='/plants/{{ plant._id }}';">Details</button>
+        <button class='plant_btn' onclick="location.href='/plants/{{ plant._id }}';">Details</button>
         <br>
     </div>
 

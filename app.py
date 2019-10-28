@@ -2,11 +2,6 @@ from bson import ObjectId
 from flask import Flask, render_template, request, redirect, url_for
 from pymongo import MongoClient
 
-''' TODO:
-    * add navbar (back & home buttons on edit, home on new) and pretty css to new and edit pages
-    * deploy to heroku??
-'''
-
 app = Flask(__name__)
 
 client = MongoClient()
