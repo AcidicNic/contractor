@@ -1,11 +1,20 @@
+import os
+
 from bson import ObjectId
 from flask import Flask, render_template, request, redirect, url_for
 from pymongo import MongoClient
 
 app = Flask(__name__)
 
-client = MongoClient()
-db = client.PlantStore
+#with heroku
+host = os.environ.get('MONGODB_URI', 'mongodb://localhost:27017/PlantStore')
+client = MongoClient(host=f'{host}?retryWrites=false')
+db = client.get_default_database()
+
+# without heroku
+# client = MongoClient()
+# db = client.PlantStore
+
 plants = db.plants
 
 
@@ -69,4 +78,4 @@ def plants_delete(plant_id):
 
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5454)
+    app.run(debug=True, host='0.0.0.0', port=os.environ.get('PORT', 5000))
