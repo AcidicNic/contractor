@@ -118,6 +118,15 @@ body {
     100% {-webkit-transform: translate(0px, 1px) rotate(0deg);}
 }
 
-@font-face { font-family: CaviarDreams; src: url('CaviarDreams.ttf'); }
-@font-face { font-family: logo; src: url('stereofidelic.ttf'); }
-@font-face { font-family: pretty; src: url('Please write me a song.ttf'); }
+@font-face {
+    font-family: CaviarDreams;
+    src: url('CaviarDreams.ttf');
+}
+@font-face {
+    font-family: logo;
+    src: url('stereofidelic.ttf');
+}
+@font-face {
+    font-family: pretty;
+    src: url('Please write me a song.ttf');
+}
