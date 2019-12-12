@@ -19,7 +19,7 @@ plants = db.plants
 
 @app.route('/')
 def plants_index():
-    ''' home page, lists all of the plant lsitings '''
+    ''' home page, lists all of the plant listings '''
     return render_template('plants_index.html', plants=plants.find())
 
 
